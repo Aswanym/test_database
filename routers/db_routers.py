@@ -1,3 +1,5 @@
+from decouple import config
+
 class OrderRouter:
     route_app_labels = {'auth', 'contenttypes', 'admin', 'sessions', 'messages', 'staticfiles', 'order'}
     """
