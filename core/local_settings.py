@@ -84,7 +84,7 @@ DATABASES = {
     'default': {},
     'product_db': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config("DATABASE_URL"),
+        'NAME': 'db_one',
         'USER': 'postgres',
         'PASSWORD': '1234',
         'HOST': 'localhost',
@@ -92,7 +92,7 @@ DATABASES = {
     },
     'order_db': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config("SECONDARY_DATABASE_URL"),
+        'NAME': 'db_two',
         'USER': 'postgres',
         'PASSWORD': '1234',
         'HOST': 'localhost',
@@ -143,9 +143,5 @@ DATABASE_ROUTERS = ['routers.db_routers.OrderRouter','routers.db_routers.Product
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-try:
-    from local_settings import *
-except ImportError as e:
-    # Configure Django App for Heroku.
-    import django_heroku
-    django_heroku.settings(locals(), databases=False)
+
+django_heroku.settings(locals())
