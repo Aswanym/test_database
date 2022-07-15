@@ -145,7 +145,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 try:
     from local_settings import *
+    print('local excecuted')
 except ImportError as e:
     # Configure Django App for Heroku.
-    import django_heroku
+    print('sever excecuted')
     django_heroku.settings(locals(), databases=False)
