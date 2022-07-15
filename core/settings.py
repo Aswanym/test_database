@@ -85,18 +85,18 @@ DATABASES = {
     'product_db': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': config("DATABASE_URL"),
-        'USER': '',
-        'PASSWORD': '',
+        'USER': 'postgres',
+        'PASSWORD': '1234',
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '',
     },
     'order_db': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config("SECONDARY_DATABASE_URL"),
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': config("SECONDARY_NAME"),
+        'USER': config("SECONDARY_USER"),
+        'PASSWORD': config("SECONDARY_PASSWORD"),
+        'HOST': config("SECONDARY_HOST"),
+        'PORT': '',
     }
 }
 
