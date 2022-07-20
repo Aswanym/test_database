@@ -11,6 +11,9 @@ class Order(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        db_table = u'"order\".\"order"'
+
 
 class SecondOrder(models.Model):
     fist_title = models.ForeignKey('order.Order', on_delete=models.CASCADE)
@@ -20,3 +23,6 @@ class SecondOrder(models.Model):
 
     def __str__(self):
         return self.second_title
+
+    class Meta:
+        db_table = u'"order\".\"second_order"'

@@ -9,6 +9,9 @@ class Product(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        db_table = u'"product\".\"product"'
+
 
 class SecondProduct(models.Model):
     fist_title = models.ForeignKey('Product', on_delete=models.CASCADE)
@@ -18,3 +21,18 @@ class SecondProduct(models.Model):
 
     def __str__(self):
         return self.second_title
+
+    class Meta:
+        db_table = u'"product\".\"second_product"'
+
+
+class Store(models.Model):
+    store_name = models.CharField(max_length=100,null=True)
+    store_title = models.CharField(max_length=100,null=True)
+
+    def __str__(self):
+        return self.store_name
+
+    class Meta:
+        db_table = u'"product\".\"store"'
+    
