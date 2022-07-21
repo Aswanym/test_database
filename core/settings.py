@@ -85,7 +85,6 @@ DATABASE_ROUTERS = ['routers.db_routers.DefaultRouter','routers.db_routers.Order
 
 DATABASES = {
     'default': {
-
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'OPTIONS': {
             'options': '-c search_path=public'
@@ -164,6 +163,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-DATABASES = {'default': dj_database_url.config()}
+# DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
+
 
 django_heroku.settings(locals())
