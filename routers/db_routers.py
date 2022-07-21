@@ -51,7 +51,7 @@ class OrderRouter:
         Attempts to read order models go to order_db.
         """
         if model._meta.app_label in self.route_app_labels:
-            return 'order_db'
+            return 'order'
         return None
 
     def db_for_write(self, model, **hints):
@@ -59,7 +59,7 @@ class OrderRouter:
         Attempts to write user models go to users_db.
         """
         if model._meta.app_label in self.route_app_labels:
-            return 'order_db'
+            return 'order'
         return None
 
     def allow_relation(self, obj1, obj2, **hints):
@@ -77,7 +77,7 @@ class OrderRouter:
         database.
         """
         if app_label in self.route_app_labels:
-            return db == 'order_db'
+            return db == 'order'
         return None
 
 
@@ -92,7 +92,7 @@ class ProductRouter:
         Attempts to read order models go to order_db.
         """
         if model._meta.app_label in self.route_app_labels:
-            return 'product_db'
+            return 'product'
         return None
 
     def db_for_write(self, model, **hints):
@@ -100,7 +100,7 @@ class ProductRouter:
         Attempts to write user models go to users_db.
         """
         if model._meta.app_label in self.route_app_labels:
-            return 'product_db'
+            return 'product'
         return None
 
     def allow_relation(self, obj1, obj2, **hints):
@@ -118,5 +118,5 @@ class ProductRouter:
         database.
         """
         if app_label in self.route_app_labels:
-            return db == 'product_db'
+            return db == 'product'
         return None

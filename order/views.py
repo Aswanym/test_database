@@ -7,17 +7,17 @@ from rest_framework import generics
 from rest_framework.views import APIView
 
 class OrderList(generics.ListCreateAPIView):
-    queryset = Order.objects.using('order_db').all()
+    queryset = Order.objects.using('order').all()
     serializer_class = OrderSerializer
 
 
 class OrderDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Order.objects.using('order_db').all()
+    queryset = Order.objects.using('order').all()
     serializer_class = OrderSerializer
 
 
 class GetProduct(APIView):
     def get(self, request):
-        queryset = Product.objects.using('product_db').all()
+        queryset = Product.objects.using('product').all()
         serializer = ProductSerializer(queryset, many=True)
         return Response({'message':'success','data':serializer.data})

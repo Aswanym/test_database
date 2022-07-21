@@ -95,7 +95,7 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '',
     },
-    'product_db': {
+    'product': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'OPTIONS': {
             'options': '-c search_path=product'
@@ -106,7 +106,7 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '',
     },
-    'order_db': {
+    'order': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'OPTIONS': {
             'options': '-c search_path=order'
@@ -163,8 +163,8 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-DATABASES = {'default': dj_database_url.config(default='postgres://localhost'),
-            'order_db': dj_database_url.config(default='postgres://localhost'),
-            'product_db': dj_database_url.config(default='postgres://localhost')  }
+# DATABASES = {'default': dj_database_url.config(default='postgres://localhost'),
+#             'order': dj_database_url.config(default='postgres://localhost'),
+#             'product': dj_database_url.config(default='postgres://localhost')  }
 
 django_heroku.settings(locals())
