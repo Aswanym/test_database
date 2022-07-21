@@ -163,7 +163,9 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
+DATABASES = {'default': dj_database_url.config(default='postgres://localhost'),
+            'order_db': dj_database_url.config(default='postgres://localhost'),
+            'product_db': dj_database_url.config(default='postgres://localhost')  }
 
 
 django_heroku.settings(locals())
