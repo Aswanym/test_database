@@ -45,4 +45,14 @@ class NewStore(models.Model):
 
     class Meta:
         db_table = u'"product\".\"new_store"'
+
+class OldStore(models.Model):
+    store_name = models.CharField(max_length=100,null=True)
+    store_title = models.CharField(max_length=100,null=True)
+
+    def __str__(self):
+        return self.store_name
+
+    class Meta:
+        db_table = u'"product\".\"old_store"'
     
