@@ -1,4 +1,4 @@
 release: python manage.py migrate --database=default
-release: python manage.py migrate --database=order_db
-release: python manage.py migrate --database=product_db
+release: python manage.py migrate --database=order
+release: python manage.py migrate --database=product
 web: gunicorn core.wsgi
