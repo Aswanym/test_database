@@ -165,7 +165,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 if "DATABASE_URL" in os.environ:
     DATABASES = {'default': dj_database_url.config(default='postgres://localhost'),
-                'order': dj_database_url.config(default='postgres://localhost'),
-                'product': dj_database_url.config(default='postgres://localhost')  }
+                'order': dj_database_url.config(order='postgres://localhost'),
+                'product': dj_database_url.config(product='postgres://localhost')  }
 
 django_heroku.settings(locals())
