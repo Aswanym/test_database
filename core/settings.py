@@ -78,7 +78,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
-DATABASE_ROUTERS = ['routers.db_routers.ProductRouter','routers.db_routers.OrderRouter']
+DATABASE_ROUTERS = ['routers.db_routers.ProductRouter']
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -90,7 +90,7 @@ DATABASES = {
         'OPTIONS': {
             'options': '-c search_path=product'
         },
-        'NAME': 'multi_schema_db',
+        'NAME': 'multi schema test',
         'USER': 'postgres',
         'PASSWORD': '1234',
         'HOST': 'localhost',
@@ -101,7 +101,7 @@ DATABASES = {
         'OPTIONS': {
             'options': '-c search_path=order'
         },
-        'NAME': 'multi_schema_db',
+        'NAME': 'multi schema test',
         'USER': 'postgres',
         'PASSWORD': '1234',
         'HOST': 'localhost',
