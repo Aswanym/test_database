@@ -78,30 +78,19 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
-DATABASE_ROUTERS = ['routers.db_routers.DefaultRouter','routers.db_routers.OrderRouter','routers.db_routers.ProductRouter']
-
+DATABASE_ROUTERS = ['routers.db_routers.ProductRouter','routers.db_routers.OrderRouter']
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'OPTIONS': {
-            'options': '-c search_path=public'
-        },
-        'NAME': 'new_full_db',
-        'USER': 'postgres',
-        'PASSWORD': '1234',
-        'HOST': 'localhost',
-        'PORT': '',
-    },
+    'default': {},
     'product': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'OPTIONS': {
             'options': '-c search_path=product'
         },
-        'NAME': 'new_full_db',
+        'NAME': 'multi_schema_db',
         'USER': 'postgres',
         'PASSWORD': '1234',
         'HOST': 'localhost',
@@ -112,7 +101,7 @@ DATABASES = {
         'OPTIONS': {
             'options': '-c search_path=order'
         },
-        'NAME': 'new_full_db',
+        'NAME': 'multi_schema_db',
         'USER': 'postgres',
         'PASSWORD': '1234',
         'HOST': 'localhost',
@@ -166,6 +155,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 if "DATABASE_URL" in os.environ:
     DATABASES = {'default': dj_database_url.config(default='postgres://localhost'),
                 'order': dj_database_url.config(default='postgres://localhost'),
-                'product': dj_database_url.config(default='postgres://localhost')  }
+                'product': dj_database_url.config(default='postgres://localhost')}
 
 django_heroku.settings(locals())
